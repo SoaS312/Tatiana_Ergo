@@ -4,9 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cube
-  - Sphere
-  - Trapeze
+  - Red
+  - Blue
+  - Green
+  - Yellow
+  - Cyan
+  - Pink
+  - Orange
+  - Brown
   layers:
   - Default
   - TransparentFX

@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ColourController.cs" />
     <Compile Include="Assets\ShapeFormula.cs" />
     <Compile Include="Assets\TransformFormula.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
