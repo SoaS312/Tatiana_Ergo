@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShapeFormula : MonoBehaviour
 {
-    public static ShapeFormula staticShapeFormula; 
+    public static ShapeFormula staticShapeFormula;
     public bool left = false;
     public bool right = false;
     public bool up = false;
@@ -17,7 +17,6 @@ public class ShapeFormula : MonoBehaviour
 
     public void FixedUpdate()
     {
-
         KeysDown();
 
         KeysUp();
@@ -28,13 +27,16 @@ public class ShapeFormula : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !left)
         {
             left = !left;
-        } else if (Input.GetKeyDown(KeyCode.RightArrow) && !right)
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && !right)
         {
             right = !right;
-        } else if (Input.GetKeyDown(KeyCode.UpArrow) && !up)
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && !up)
         {
             up = !up;
-        } else if (Input.GetKeyDown(KeyCode.DownArrow) && !down)
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && !down)
         {
             down = !down;
         }
@@ -45,13 +47,16 @@ public class ShapeFormula : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftArrow) && left)
         {
             left = !left;
-        } else if (Input.GetKeyUp(KeyCode.RightArrow) && right)
+        }
+        else if (Input.GetKeyUp(KeyCode.RightArrow) && right)
         {
             right = !right;
-        } else if (Input.GetKeyUp(KeyCode.UpArrow) && up)
+        }
+        else if (Input.GetKeyUp(KeyCode.UpArrow) && up)
         {
             up = !up;
-        } else if (Input.GetKeyUp(KeyCode.DownArrow) && down)
+        }
+        else if (Input.GetKeyUp(KeyCode.DownArrow) && down)
         {
             down = !down;
         }
