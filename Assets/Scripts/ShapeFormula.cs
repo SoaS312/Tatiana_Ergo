@@ -19,7 +19,6 @@ public class ShapeFormula : MonoBehaviour
     public void FixedUpdate()
     {
         KeysDown();
-
         KeysUp();
     }
 
@@ -54,7 +53,6 @@ public class ShapeFormula : MonoBehaviour
             right = false;
             up = false;
             down = false;
-            canRelease = false;
         }
     }
 }

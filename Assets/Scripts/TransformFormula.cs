@@ -16,6 +16,16 @@ public class TransformFormula : MonoBehaviour
     public Material color3;
     public Material color4;
 
+    [Header("Timer")]
+    public float maxTime;
+    public float actualTime;
+
+
+    public void OnEnable()
+    {
+        actualTime = maxTime;
+        ShapeFormula.staticShapeFormula.canRelease = true;
+    }
 
     public void Start()
     {
@@ -30,12 +40,15 @@ public class TransformFormula : MonoBehaviour
         ColorFormula.staticColorFormula.fourthColor = false;
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         TransformShape();
-
         TransformColor();
 
+        if (actualTime > 0)
+        {
+            actualTime -= 0.01f;
+        }
     }
 
     public void TransformColor()
@@ -65,28 +78,40 @@ public class TransformFormula : MonoBehaviour
 
     public void TransformShape()
     {
-        if (ShapeFormula.staticShapeFormula.left)
+        if (actualTime < 0)
         {
-            this.gameObject.SetActive(false);
-            formulaLeft.SetActive(true);
+            ShapeFormula.staticShapeFormula.canRelease = false;
         }
 
-        if (ShapeFormula.staticShapeFormula.right)
+        if (ShapeFormula.staticShapeFormula.canRelease == false)
         {
-            this.gameObject.SetActive(false);
-            formulaRight.SetActive(true);
-        }
+            if (ShapeFormula.staticShapeFormula.left)
+            {
+                this.gameObject.SetActive(false);
+                ShapeFormula.staticShapeFormula.canRelease = true;
+                formulaLeft.SetActive(true);
+            }
 
-        if (ShapeFormula.staticShapeFormula.up)
-        {
-            this.gameObject.SetActive(false);
-            formulaUp.SetActive(true);
-        }
+            if (ShapeFormula.staticShapeFormula.right)
+            {
+                this.gameObject.SetActive(false);
+                ShapeFormula.staticShapeFormula.canRelease = true;
+                formulaRight.SetActive(true);
+            }
 
-        if (ShapeFormula.staticShapeFormula.down)
-        {
-            this.gameObject.SetActive(false);
-            formulaDown.SetActive(true);
+            if (ShapeFormula.staticShapeFormula.up)
+            {
+                this.gameObject.SetActive(false);
+                ShapeFormula.staticShapeFormula.canRelease = true;
+                formulaUp.SetActive(true);
+            }
+
+            if (ShapeFormula.staticShapeFormula.down)
+            {
+                this.gameObject.SetActive(false);
+                ShapeFormula.staticShapeFormula.canRelease = true;
+                formulaDown.SetActive(true);
+            }
         }
     }
 }
