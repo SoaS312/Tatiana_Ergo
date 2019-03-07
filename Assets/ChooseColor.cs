@@ -6,21 +6,19 @@ public class ChooseColor : MonoBehaviour
 {
     public Material selectedColor;
     public List<Material> Colors;
-    public int index = 0;
+    public int colorIndex = 0;
 
-
-    // Start is called before the first frame update
+    public bool isObjectif;
+    
     void Start()
     {
-        index = Random.Range(0, Colors.Count+1);
-        Debug.Log(index);
-        selectedColor = Colors[index];
-        gameObject.GetComponent<Renderer>().material = selectedColor;
+        ChooseColorShape();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ChooseColorShape()
     {
-        
+        colorIndex = Random.Range(0, Colors.Count);
+        selectedColor = Colors[colorIndex];
+        gameObject.GetComponent<Renderer>().material = selectedColor;
     }
 }

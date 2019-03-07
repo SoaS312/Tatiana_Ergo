@@ -9,6 +9,7 @@ public class ShapeFormula : MonoBehaviour
     public bool right = false;
     public bool up = false;
     public bool down = false;
+    public bool canRelease = true;
 
     public void Awake()
     {
@@ -24,41 +25,36 @@ public class ShapeFormula : MonoBehaviour
 
     public void KeysDown()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !left)
+        if (!canRelease)
         {
-            left = !left;
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && !right)
-        {
-            right = !right;
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && !up)
-        {
-            up = !up;
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && !down)
-        {
-            down = !down;
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                left = true;
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                right = true;
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                up = true;
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                down = true;
+            }
         }
     }
 
     public void KeysUp()
     {
-        if (Input.GetKeyUp(KeyCode.LeftArrow) && left)
+        if (!Input.anyKey)
         {
-            left = !left;
-        }
-        else if (Input.GetKeyUp(KeyCode.RightArrow) && right)
-        {
-            right = !right;
-        }
-        else if (Input.GetKeyUp(KeyCode.UpArrow) && up)
-        {
-            up = !up;
-        }
-        else if (Input.GetKeyUp(KeyCode.DownArrow) && down)
-        {
-            down = !down;
+            left = false;
+            right = false;
+            up = false;
+            down = false;
+            canRelease = false;
         }
     }
 }
