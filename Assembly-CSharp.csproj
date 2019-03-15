@@ -70,6 +70,7 @@
     <Compile Include="Assets\SaveColor.cs" />
     <Compile Include="Assets\Scripts\ShapeFormula.cs" />
     <Compile Include="Assets\Scripts\TransformFormula.cs" />
+    <Compile Include="Assets\timerScript.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/GitKrakenProject/Tatiana_Ergo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

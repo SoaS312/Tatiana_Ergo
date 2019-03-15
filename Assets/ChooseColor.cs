@@ -15,7 +15,7 @@ public class ChooseColor : MonoBehaviour
         ChooseColorShape();
     }
 
-    private void ChooseColorShape()
+    public void ChooseColorShape()
     {
         colorIndex = Random.Range(0, Colors.Count);
         selectedColor = Colors[colorIndex];
